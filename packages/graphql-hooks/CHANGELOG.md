@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/nearform/graphql-hooks/compare/graphql-hooks@5.1.1...graphql-hooks@5.2.0) (2021-05-21)
+
+
+### Features
+
+* **deepmerge:** added deepmerge for fetchOptionsOverride ([de3df33](https://github.com/nearform/graphql-hooks/commit/de3df33d8b68acb2721bf859aa4ad3ea1c0b8006))
+
+
+
+
+
 ## [5.1.1](https://github.com/nearform/graphql-hooks/compare/graphql-hooks@5.1.0...graphql-hooks@5.1.1) (2021-02-17)
 
 **Note:** Version bump only for package graphql-hooks
