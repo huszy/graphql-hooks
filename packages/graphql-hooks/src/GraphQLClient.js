@@ -2,6 +2,7 @@ import { extractFiles } from 'extract-files'
 
 import isExtractableFileEnhanced from './isExtractableFileEnhanced'
 import canUseDOM from './canUseDOM'
+const merge = require('deepmerge')
 
 class GraphQLClient {
   constructor(config = {}) {
@@ -101,10 +102,7 @@ class GraphQLClient {
   }
 
   getCacheKey(operation, options = {}) {
-    const fetchOptions = {
-      ...this.fetchOptions,
-      ...options.fetchOptionsOverrides
-    }
+    const fetchOptions = merge(this.fetchOptions, options.fetchOptionsOverrides)
     return {
       operation,
       fetchOptions
@@ -128,14 +126,16 @@ class GraphQLClient {
   // Kudos to Jayden Seric (@jaydenseric) for this piece of code.
   // See original source: https://github.com/jaydenseric/graphql-react/blob/82d576b5fe6664c4a01cd928d79f33ddc3f7bbfd/src/universal/graphqlFetchOptions.mjs.
   getFetchOptions(operation, fetchOptionsOverrides = {}) {
-    const fetchOptions = {
-      method: 'POST',
-      headers: {
-        ...this.headers
+    const fetchOptions = merge(
+      {
+        method: 'POST',
+        headers: {
+          ...this.headers
+        },
+        ...this.fetchOptions
       },
-      ...this.fetchOptions,
-      ...fetchOptionsOverrides
-    }
+      fetchOptionsOverrides
+    )
 
     if (fetchOptions.method === 'GET') {
       return fetchOptions

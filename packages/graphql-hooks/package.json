@@ -34,6 +34,7 @@
     "react": "^17.0.0"
   },
   "dependencies": {
+    "deepmerge": "^4.2.2",
     "dequal": "^2.0.0",
     "extract-files": "^9.0.0"
   },
